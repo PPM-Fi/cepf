@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{% load pwa %}
+{% load static %}
+<head>
+    {% progressive_web_app_meta %}
+	<title>CEPF</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+</head>
+<body>
+    <h1>Title</h1>
+    <br>
+	{% block content %}
+
+	{% endblock %}
+</body>
+</html>
