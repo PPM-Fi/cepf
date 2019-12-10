@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS appointment (
     id INT NOT NULL PRIMARY KEY,
     community INT,
     feedback INT,
+	date TEXT,
     FOREIGN KEY (community) REFERENCES community(id),
     FOREIGN KEY (feedback) REFERENCES appointment_feedback(id)
 );
