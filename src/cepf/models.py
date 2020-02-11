@@ -3,22 +3,27 @@ from django.db import models
 class Community_Class(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
-
-class Community(models.Model):
-    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=50)
-    community_type = modles.ForeignKey(Community_Class)
-    location = models.CharField(max_length=50)
-    communication_channel = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    community = models.ForeignKey(Community)
-    engagement_period = models.ForeignKey(Engagement_Period)
-    engagement_period_multipler = modles.IntegerField()
+    class Meta:
+        verbose_name_plural = "Community_Classes"
 
 class Engagement_Period(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
+    class Meta:
+        verbose_name_plural = "Engagement_Periods"
+
+class Community(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50)
+    community_type = models.ForeignKey(Community_Class, on_delete=models.CASCADE)
+    location = models.CharField(max_length=50)
+    communication_channel = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    engagement_period = models.ForeignKey(Engagement_Period, on_delete=models.CASCADE)
+    engagement_period_multipler = models.IntegerField()
+    class Meta:
+        verbose_name_plural = "Communities"
 
 class Appointment_Feedback(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -26,6 +31,8 @@ class Appointment_Feedback(models.Model):
     start_rating2 = models.FloatField()
     start_rating3 = models.FloatField()
     notes = models.TextField()
+    class Meta:
+        verbose_name_plural = "Appointments_Feedback"
 
 class Officer(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -35,6 +42,6 @@ class Officer(models.Model):
 class Appointment(models.Model):
     id = models.IntegerField(primary_key=True)
     date = models.DateTimeField()
-    appointment_feedback = models.OneToOneField(Appointment_Feedback)
+    appointment_feedback = models.OneToOneField(Appointment_Feedback, on_delete=models.CASCADE)
     officers = models.ManyToManyField(Officer)
-    community = models.ForeignKey(Community)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE)
