@@ -1,11 +1,82 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load static %}
 
-<h2>Subtitle</h2>
-<br>
-<p>
-    This is a paragraph.
-</p>
+{% block head %}
+
+<link rel="stylesheet" href="{% static "css/calendar.css" %}">
+<link rel="stylesheet" href="{% static "css/appointments.css" %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="cal">
+        <span class="weekday">M</span>
+        <span class="weekday">T</span>
+        <span class="weekday">W</span>
+        <span class="weekday">T</span>
+        <span class="weekday">F</span>
+        <span class="weekday">S</span>
+        <span class="weekday">S</span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span>1</span>
+        <span class="circle">2</span>
+        <span>3</span>
+        <span class="blue">4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span class="blue">10</span>
+        <span>11</span>
+        <span class="circle purple">12</span>
+        <span>13</span>
+        <span>14</span>
+        <span>15</span>
+        <span>16</span>
+        <span>17</span>
+        <span>18</span>
+        <span>19</span>
+        <span>20</span>
+        <span>21</span>
+        <span>24</span>
+        <span class="red">22</span>
+        <span>25</span>
+        <span>26</span>
+        <span class="purple">27</span>
+        <span class="red">28</span>
+        <span>29</span>
+        <span>30</span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+        <span class="b"></span>
+    </div>
+    <div class="appointments">
+        <div class="item blue"></div>
+        <div class="item blue"></div>
+        <div class="item red"></div>
+        <div class="item blue"></div>
+        <div class="item red"></div>
+        <div class="item red"></div>
+        <div class="item red"></div>
+        <div class="item blue"></div>
+        <div class="item blue"></div>
+        <div class="item red"></div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static "js/height-adjust.js" %}"></script>
 
 {% endblock %}
