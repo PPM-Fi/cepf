@@ -1,0 +1,18 @@
+.footer-fixed {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+footer ul li {
+        margin-left:auto;
+        margin-right:auto;
+        width: 120px;
+}
+
+footer ul.justify {
+        text-align: center;
+        display: table;
+        overflow: hidden;
+        margin: 0 auto;
+}
