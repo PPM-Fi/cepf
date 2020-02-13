@@ -134,13 +134,36 @@ PWA_APP_DEBUG_MODE = True
 PWA_APP_NAME = 'CEPF'
 PWA_APP_DESCRIPTION = "Nottinghamshire Community Engagement Peformance Framework"
 PWA_APP_THEME_COLOR = '#03a9f4'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_BACKGROUND_COLOR = '#03a9f4'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
+PWA_APP_ORIENTATION = 'portrait'
 PWA_APP_START_URL = '/'
-PWA_APP_ICONS = [ { 'src': '/static/images/my_app_icon.png', 'sizes': '160x160' } ]
-PWA_APP_ICONS_APPLE = [ { 'src': '/static/images/my_apple_icon.png', 'sizes': '160x160' } ]
-PWA_APP_SPLASH_SCREEN = [ { 'src': '/static/images/icons/splash-640x1136.png', 'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)' } ]
+PWA_APP_ICONS = [
+    { 'src': '/static/images/icons/icon-512x512.png', 'sizes': '512x512' },
+    { 'src': '/static/images/icons/icon-384x384.png', 'sizes': '384x384' },
+    { 'src': '/static/images/icons/icon-192x192.png', 'sizes': '192x192' },
+    { 'src': '/static/images/icons/icon-152x152.png', 'sizes': '152x152' },
+    { 'src': '/static/images/icons/icon-144x144.png', 'sizes': '144x144' },
+    { 'src': '/static/images/icons/icon-128x128.png', 'sizes': '128x128' },
+    { 'src': '/static/images/icons/icon-96x96.png', 'sizes': '96x96' },
+    { 'src': '/static/images/icons/icon-72x72.png', 'sizes': '72x72' },
+]
+PWA_APP_ICONS_APPLE = [
+    { 'src': '/static/images/icons/icon-512x512-apple.png', 'sizes': '512x512' },
+    { 'src': '/static/images/icons/icon-384x384-apple.png', 'sizes': '384x384' },
+    { 'src': '/static/images/icons/icon-192x192-apple.png', 'sizes': '192x192' },
+    { 'src': '/static/images/icons/icon-152x152-apple.png', 'sizes': '152x152' },
+    { 'src': '/static/images/icons/icon-144x144-apple.png', 'sizes': '144x144' },
+    { 'src': '/static/images/icons/icon-128x128-apple.png', 'sizes': '128x128' },
+    { 'src': '/static/images/icons/icon-96x96-apple.png', 'sizes': '96x96' },
+    { 'src': '/static/images/icons/icon-72x72-apple.png', 'sizes': '72x72' },
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '/static/images/icons/splash-640x1136.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
