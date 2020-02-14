@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Top Nav Bar */
+.header {
+  overflow: hidden;
+  background-color: #125687;  
+  top: 0;
+  width: 100%;
+}
+
+.header a {
+  float: left;
+  display: block;
+  color: #EEEEEE;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  text-decoration: none;
+  width: 33.33%;
+  border-bottom: 2.5px solid #125687;
+  font-size:3.5vw
+}
+
+.header a:hover {
+  border-color: #EEEEEE; ;
+}
+
+.header a.active {
+  border-color: #EEEEEE; ;
+}
+
+
+/* Bottom Nav Bar */
+.BottomNavbar {
+  overflow: hidden;
+  background-color: #125687;  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.BottomNavbar a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  width: 25%;
+}
+
+.BottomNavbar a:hover {
+  background-color: #5b8ab3;
+}
+
+.BottomNavbar a.active {
+  background-color: #5b8ab3;
+  color: white;
+}
+
+.Border{
+  border-radius: 25%;
+  width:32px;
+  height:32px;
+}
+
+/* Style the content */
+.content {
+  background-color: #ddd;
+  padding: 10px;
+}
+
+</style>
+
+</head>
+<body>
+
+  <div class="header" id="topNavbarID">
+    <a href="#One"><p>One</p></a>
+    <a href="#Two"><p>Two</p></a>
+    <a href="#Three"><p>Three</p></a>
+  </div>
+
+
+
+  <div class="BottomNavbar" id="BottomNavbarID">
+    <a href="#Calendar"><img src="Icons/Calender.png" class="Border"></a>
+    <a href="#news"><img src="Icons/Community.png" class="Border"></a>
+    <a href="#contact"><img src="Icons/Analytics.png" class="Border"></a>
+    <a href="#about"><img src="Icons/Profile.png" class="Border"></a>
+  </div>
+
+  <div class="content">
+    <h2>Test</h2>
+    <p>Hello World</p>
+  </div>
+
+
+</body>
+</html>

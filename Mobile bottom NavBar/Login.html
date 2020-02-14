@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+	
+body
+{
+  background-image: url('notts.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+.outer-div
+{
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.mid-div
+{
+  display: table-cell;
+  vertical-align: middle;
+}
+.center-div
+{
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
+  background-color: white;
+  border-radius: 3px;
+}
+
+/* /////////////// */
+.container {
+  padding: 16px;
+}
+
+input[type=text], input[type=password] {
+  width: 80%;
+  padding: 24px ;
+  margin-right:10%;
+  margin-left:10%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size:3vw;
+}
+
+
+.field-wrap {
+  margin: 4em;
+}
+
+button {
+  background-color: #3b5998;
+  color: white;
+  width: 80%;
+  padding: 24px 2%;
+  margin-right:10%;
+  margin-left:10%;
+  border: none;
+  cursor: pointer;
+  font-size:3vw;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.font {
+  margin: 64px;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.line{
+  width: 80%;
+  margin-right:10%;
+  margin-left:10%;
+  border-width: 5px;
+  border-bottom: 1px solid black;
+}
+
+</style>
+	<title>
+		
+	</title>
+</head>
+<body>
+
+ <div class="outer-div">
+ 	<div class="mid-div">
+ 		<div class="center-div">
+ 			<div class="container">
+
+        <div class="font">
+          <h1>LOG IN</h1>
+        </div>
+
+ 			  <form action="/" method="post">
+ 				 <div class="field-wrap">
+ 					  <input type="text" placeholder="Enter Username" name="uname" required>
+ 				 </div>
+
+ 				 <div class="field-wrap">
+    				<input type="password" placeholder="Enter Password" name="psw" required>
+ 				 </div>
+
+          <div class="field-wrap">
+            <button type="submit">Login</button>
+          </div>
+
+          <div class="line"></div>
+
+          <div class="field-wrap">
+            <button style="background-color: #ff8c1a;" type="submit">Admin Login</button>
+          </div>
+
+          </form>
+   			</div>
+      </div>
+ 	  </div>
+  </div>
+
+</body>
+</html>
