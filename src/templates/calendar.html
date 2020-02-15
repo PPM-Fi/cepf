@@ -3,6 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static "css/footer.css" %}">
+<link rel="stylesheet" href="{% static "css/calendar.css" %}">
 {% endblock %}
 
 {% block content %}
@@ -31,9 +32,66 @@
 </header>
 
 <main>
-        <div class="container form-container">
+        <div class="container">
                 <div class="row">
-                        <h1>Calendar View</h1>
+                        <div class="col s12 m12 l12">
+                                <ul class="collapsible collection with-header">
+                                        <li class="collection-header light-blue lighten-3">
+                                                <h4>Today's Assignments</h4>
+                                                <p>February 15, 2020</p>
+                                        </li>
+                                        <li>
+                                                <div class="collapsible-header">
+                                                        <div><i class="material-icons">expand_more</i></div>
+                                                        <div>St Paul the Baptist<div class="teal-text text-lighten-1">13:00 - 14:00</div></div>
+                                                </div>
+                                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                        </li>
+                                        <li class="collection-header light-blue lighten-3">
+                                                <h4>Upcoming Assignments</h4>
+                                        </li>
+                                        <li>
+                                                <div class="collapsible-header">
+                                                        <i class="material-icons">expand_more</i>
+                                                        <div>African Caribbean Elders
+                                                                <div class="teal-text text-lighten-1">11:30 - 13:00</div>
+                                                                <div class="teal-text text-lighten-1">Monday, 16.02.2020</div>
+                                                        </div>
+                                                </div>
+                                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                        </li>
+                                        <li>
+                                                <div class="collapsible-header">
+                                                        <i class="material-icons">expand_more</i>
+                                                        <div>Community Outreach
+                                                                <div class="teal-text text-lighten-1">18:00 - 19:00</div>
+                                                                <div class="teal-text text-lighten-1">Wednesday, 18.02.2020</div>
+                                                        </div>
+                                                </div>
+                                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                        </li>
+                                        <li>
+                                                <div class="collapsible-header">
+                                                        <i class="material-icons">expand_more</i>
+                                                        <div>Gedling Youth
+                                                                <div class="teal-text text-lighten-1">9:30 - 11:00</div>
+                                                                <div class="teal-text text-lighten-1">Saturday, 21.02.2020</div>
+                                                        </div>
+                                                </div>
+                                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                        </li>
+                                        <li>
+                                                <div class="collapsible-header">
+                                                        <i class="material-icons">expand_more</i>
+                                                        <div>Elderly Group
+                                                                <div class="teal-text text-lighten-1">10:30 - 12:00</div>
+                                                                <div class="teal-text text-lighten-1">Monday, 23.02.2020</div>
+                                                        </div>
+                                                </div>
+                                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                        </li>
+                                </ul>
+                        </div>
                 </div>
         </div>
 </main>

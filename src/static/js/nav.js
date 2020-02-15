@@ -4,4 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var dropdownElems = document.querySelectorAll('.dropdown-trigger');
     var dropdownInstances = M.Dropdown.init(dropdownElems, { hover: false });
+
+    var collapsableElems = document.querySelectorAll('.collapsible');
+    var collapsableInstances = M.Collapsible.init(collapsableElems);
   });
