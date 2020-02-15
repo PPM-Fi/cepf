@@ -24,10 +24,9 @@
         </ul>
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
+                <li><a href="javascript:window.location.reload(true)">Refresh</a></li>
                 <li class="divider"></li>
-                <li><a href="#!">three</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
 </header>
 
@@ -35,7 +34,6 @@
         <div class="container form-container">
                 <div class="row">
                         <h1>Analytics View</h1>
-                        <p><a href="{% url 'logout' %}">logout</a></p>
                 </div>
         </div>
 </main>
