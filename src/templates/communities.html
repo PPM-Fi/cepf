@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+<header>
+        <!-- Top Navbar -->
+        <nav>
+                <div class="nav-wrapper light-blue">
+                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                        <ul class="right">
+                                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
+                        </ul>
+                </div>
+        </nav>
+        <!-- Slide-out Navbar -->
+        <ul id="slide-out" class="sidenav">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+                <li><a href="#!">one</a></li>
+                <li><a href="#!">two</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">three</a></li>
+        </ul>
+</header>
+
+<main>
+        <div class="container form-container">
+                <div class="row">
+                        <h1>Communities View</h1>
+                        <p><a href="{% url 'logout' %}">logout</a></p>
+                </div>
+        </div>
+</main>
+
+<footer>
+        <div class="footer-fixed">
+		<nav class="z-depth-0 light-blue">
+			<div class="nav-wrapper">
+				<ul class="justify">
+                                        <li><a href="{% url 'calendar' %}"><i class="material-icons" style="font-size: 3rem">date_range</i></a></li>
+					<li><a href="{% url 'analytics' %}"><i class="material-icons" style="font-size: 3rem">insert_chart</i></a></li>
+					<li class="active"><a href="#"><i class="material-icons" style="font-size: 3rem">people</i></a></li>
+				</ul>
+			</div>
+		</nav>
+        </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/nav.js" %}"></script>
+{% endblock %}
