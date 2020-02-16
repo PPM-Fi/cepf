@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/footer.css" %}">
+<link rel="stylesheet" href="{% static "css/calendar.css" %}">
+{% endblock %}
+
+{% block content %}
+<header>
+        <!-- Top Navbar -->
+        <div class="navbar-fixed">
+        <nav>
+                <div class="nav-wrapper light-blue">
+                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                        <ul class="right">
+                                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
+                        </ul>
+                </div>
+        </nav>
+        </div>
+        <!-- Slide-out Navbar -->
+        <ul id="slide-out" class="sidenav">
+                <li><a href="{% url 'calendar' %}">Active Assignments</a></li>
+                <li><a href="#">Past Assignments</a></li>
+        </ul>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+                <li><a href="javascript:window.location.reload(true)">Refresh</a></li>
+                <li class="divider"></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+</header>
+
+<main>
+        <div class="container">
+                <div class="row">
+                        <div class="col s12 m12 l12">
+                                <ul class="collapsible collection with-header">
+                                        <li class="collection-header light-blue lighten-3">
+                                                <h4>Past Assignments</h4>
+                                        </li>
+
+                                        {% for assignment in assignments %}
+                                        <li>
+                                                <div class="collapsible-header grey lighten-4">
+                                                        <i class="material-icons">expand_more</i>
+                                                        <div>{{ assignment.name }}
+                                                                <div class="teal-text text-lighten-1">{{ assignment.time }}</div>
+                                                                <div class="teal-text text-lighten-1">{{ assignment.date }}</div>
+                                                        </div>
+                                                </div>
+                                                <div class="collapsible-body">
+                                                        <p class="details-header">Location</p>
+                                                        <p>{{ assignment.location|linebreaks }}</p>
+
+                                                        <p class="details-header">Contact Details</p>
+                                                        <p>{{ assignment.contact|linebreaks }}</p>
+                                                </div>
+                                        </li>
+                                        {% endfor %}
+                                </ul>
+                        </div>
+                </div>
+        </div>
+</main>
+
+<footer>
+        <div class="footer-fixed">
+		<nav class="z-depth-0 light-blue">
+			<div class="nav-wrapper">
+				<ul class="justify">
+                                        <li><a href="{% url 'calendar' %}"><i class="material-icons" style="font-size: 3rem">today</i></a></li>
+					<li class="active"><a href="#"><i class="material-icons" style="font-size: 3rem">history</i></a></li>
+				</ul>
+			</div>
+		</nav>
+        </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/nav.js" %}"></script>
+{% endblock %}
