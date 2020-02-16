@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class Officer(AbstractUser):
-    pass
+
+    class Meta:
+        db_table = 'Officers'
 
 # class Community_Class(models.Model):
 #     id = models.IntegerField(primary_key=True)
