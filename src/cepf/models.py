@@ -4,45 +4,40 @@ from django.contrib.auth.models import AbstractUser
 class Officer(AbstractUser):
 
     class Meta:
-        db_table = 'Officers'
+        db_table = 'Officer'
+        verbose_name_plural = 'Officer'
 
-# class Community_Class(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     name = models.CharField(max_length=50)
-#     class Meta:
-#         verbose_name_plural = "Community_Classes"
-#
-# class Engagement_Period(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     name = models.CharField(max_length=50)
-#     class Meta:
-#         verbose_name_plural = "Engagement_Periods"
-#
-# class Community(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     name = models.CharField(max_length=50)
-#     community_type = models.ForeignKey(Community_Class, on_delete=models.CASCADE)
-#     location = models.CharField(max_length=50)
-#     communication_channel = models.CharField(max_length=50)
-#     phone_number = models.CharField(max_length=50)
-#     email = models.CharField(max_length=50)
-#     engagement_period = models.ForeignKey(Engagement_Period, on_delete=models.CASCADE)
-#     engagement_period_multipler = models.IntegerField()
-#     class Meta:
-#         verbose_name_plural = "Communities"
-#
-# class Appointment_Feedback(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     start_rating1 = models.FloatField()
-#     start_rating2 = models.FloatField()
-#     start_rating3 = models.FloatField()
-#     notes = models.TextField()
-#     class Meta:
-#         verbose_name_plural = "Appointments_Feedback"
-#
-# class Appointment(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     date = models.DateTimeField()
-#     appointment_feedback = models.OneToOneField(Appointment_Feedback, on_delete=models.CASCADE)
-#     officers = models.ManyToManyField(Officer)
-#     community = models.ForeignKey(Community, on_delete=models.CASCADE)
+    def names():
+        return self.first_name + ' ' + self.last_name
+
+class Community(models.Model):
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
+    location = models.CharField(max_length=100)
+    communication_channel = models.CharField(max_length=50)
+    engagement_period = models.CharField(max_length=5)
+    engagement_period_multipler = models.IntegerField()
+
+    class Meta:
+        db_table = 'Community'
+        verbose_name_plural = 'Community'
+
+class Feedback(models.Model):
+    attendance = models.IntegerField()
+    reception = models.IntegerField()
+    impact = models.IntegerField()
+    notes = models.TextField()
+
+    class Meta:
+        db_table = 'Feedback'
+        verbose_name_plural = 'Feedback'
+
+class Appointment(models.Model):
+    date = models.DateTimeField()
+    feedback = models.OneToOneField(Feedback, null=True, blank=True, on_delete=models.SET_NULL)
+    officers = models.ManyToManyField(Officer)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table= 'Appointment'
+        verbose_name_plural = 'Appointment'
