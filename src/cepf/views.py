@@ -15,7 +15,7 @@ def calendar(request):
 
     appointments = Appointment.objects.filter(
             officers__id=request.user.id
-        )
+        ).order_by('date')
 
     for appointment in appointments:
         if appointment.date.date() == d.today():
@@ -49,7 +49,7 @@ def history(request):
 
     appointments = Appointment.objects.filter(
             officers__id=request.user.id
-        )
+        ).order_by('-date')
 
     for appointment in appointments:
         if appointment.date.date() < d.today():
