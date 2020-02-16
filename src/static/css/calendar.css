@@ -5,3 +5,15 @@
 .collection-header {
         font-size: 16px;
 }
+
+.collapsible-body {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+}
+
+.details-header {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 0;
+}
