@@ -77,5 +77,5 @@ def communities(request):
 
 @login_required(login_url='/auth/login/')
 def feedback(request):
-	template='feedback.html'
-	return render(request, template)
+    	template='feedback.html'
+    	return render(request, template)
