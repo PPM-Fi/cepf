@@ -59,26 +59,35 @@
           </li>
 
           <div class="row">
-            <form class="container">
+
+            <form method="post" class="container">
+              {% csrf_token %}
+              {{ form.as_p }}
               <div class="row">
                 <div class="input-field col s12">
                    <i class="material-icons prefix">mode_edit</i>
                   <textarea id="textarea1" class="materialize-textarea"></textarea>
                   <label for="textarea1">Feeback Notes</label>
+
+                  <div class="container center-align">
+                    <button class=" center-align waves-effect waves-light light-blue btn-large" type="submit">Submit</button>
+                  </div>
+
+                  <h2>{{ text }}</h2>
+
                 </div>
               </div>
             </form>
-          </div>
 
-          <div class="row">
-            <form class="container center-align">
-              <button class="waves-effect waves-light light-blue btn-large" type="submit">Submit</button>
-            </form>
+
+
           </div>
         </<ul>
       </div>
     </div>
   </div>
+
+
 </main>
 
 <footer>
