@@ -7,4 +7,5 @@ urlpatterns = [
     path('analytics', views.analytics, name='analytics'),
     path('communities', views.communities, name='communities'),
     path('feedback', views.feedback, name='feedback'),
+    path('newCommit', views.newCommit, name='newCommit'),
 ]

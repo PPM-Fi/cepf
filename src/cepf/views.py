@@ -82,6 +82,11 @@ def feedback(request):
     	template='feedback.html'
     	return render(request, template)
 
+@login_required(login_url='/auth/login/')
+def newCommit(request):
+    	template='newCommit.html'
+    	return render(request, template)
+
 class ClassName(object):
 
         def get(self, request):
