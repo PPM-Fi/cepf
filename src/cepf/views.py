@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
 from cepf.models import Officer, Community, Appointment
 
 from datetime import date as d
-
-from cepf.form import fbForm
 
 @login_required(login_url='/auth/login/')
 def calendar(request):
@@ -86,24 +83,3 @@ def feedback(request):
 def newCommit(request):
     	template='newCommit.html'
     	return render(request, template)
-
-class ClassName(object):
-
-        def get(self, request):
-            template_name='feedback.html'
-            form = fbForm()
-            return render(request, self.template_name, {'form': form})
-
-        def post(self, request):
-            form = fbForm(request.POST)
-            if form.is_valid():
-                form.saved(commit=False)
-                post.User = request.user
-                post.save()
-
-                text = form.cleaned_data['post']
-                #form = fbForm()
-                #return redirect(redirectCal)
-
-            args = {'form': form, 'text': text}
-            return render(request, self.template_name, args)

@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
 
-
 class Officer(AbstractUser):
 
     class Meta:
@@ -31,7 +30,3 @@ class Appointment(models.Model):
     class Meta:
         db_table= 'Appointment'
         verbose_name_plural = 'Appointment'
-
-class Post(models.Model):
-    post = models.CharField(max_length=250)
-    user = models.ForeignKey(Officer, on_delete=models.CASCADE)
