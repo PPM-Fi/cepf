@@ -1,4 +1,15 @@
 main {
         margin-top: 30px;
         margin-bottom: 80px;
+        flex: 1 0 auto;
+}
+
+footer div {
+        height: 23px;
+}
+
+body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
 }

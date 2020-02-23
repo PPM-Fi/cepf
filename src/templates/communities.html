@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static "css/footer.css" %}">
 {% endblock %}
 
 {% block content %}
@@ -40,20 +39,6 @@
                 </div>
         </div>
 </main>
-
-<footer>
-        <div class="footer-fixed">
-		<nav class="z-depth-0 light-blue">
-			<div class="nav-wrapper">
-				<ul class="justify">
-                                        <li><a href="{% url 'calendar' %}"><i class="material-icons" style="font-size: 3rem">date_range</i></a></li>
-					<li><a href="{% url 'analytics' %}"><i class="material-icons" style="font-size: 3rem">insert_chart</i></a></li>
-					<li class="active"><a href="#"><i class="material-icons" style="font-size: 3rem">people</i></a></li>
-				</ul>
-			</div>
-		</nav>
-        </div>
-</footer>
 {% endblock %}
 
 {% block scripts %}
