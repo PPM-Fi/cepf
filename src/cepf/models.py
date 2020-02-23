@@ -22,11 +22,22 @@ class Community(models.Model):
         db_table = 'Community'
         verbose_name_plural = 'Community'
 
+class Feedback(models.Model):
+    attendance = models.IntegerField()
+    reception = models.IntegerField()
+    impact = models.IntegerField()
+    notes = models.TextField()
+
+    class Meta:
+        db_table= 'Feedback'
+        verbose_name_plural = 'Feedback'
+
 class Appointment(models.Model):
     date = models.DateTimeField()
     officers = models.ManyToManyField(Officer)
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     is_completed = models.BooleanField(default=False)
+    feedback = models.ForeignKey(Feedback, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table= 'Appointment'

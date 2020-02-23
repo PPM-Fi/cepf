@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from cepf.models import Officer, Community, Appointment
+from cepf.forms import FeedbackForm
 
 from datetime import date as d
 
@@ -68,4 +70,12 @@ def history(request):
 
 @login_required(login_url='/auth/login/')
 def add_feedback(request):
-    return render(request, 'feedback.html')
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            #TODO: Process form submission
+            return HttpResponseRedirect('/')
+    else:
+        form = FeedbackForm()
+
+    return render(request, 'feedback.html', {'form': form})
