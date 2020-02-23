@@ -17,3 +17,11 @@
         margin-top: 10px;
         margin-bottom: 0;
 }
+
+.checkbox {
+        font-size: 36px !important;
+}
+
+.right-aligned-flex {
+        margin-left: auto;
+}

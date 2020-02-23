@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from cepf.models import Officer, Community, Appointment
 
 from datetime import date as d
@@ -23,7 +24,8 @@ def calendar(request):
                     'name': appointment.community.name,
                     'time': appointment.date.strftime("%H:%M"),
                     'location': appointment.community.location,
-                    'contact': appointment.community.communication_channel
+                    'contact': appointment.community.communication_channel,
+                    'is_completed': appointment.is_completed
                 }
             )
         elif appointment.date.date() > d.today():
@@ -65,21 +67,5 @@ def history(request):
     return render(request, 'history.html', context)
 
 @login_required(login_url='/auth/login/')
-def analytics(request):
-	template='analytics.html'
-	return render(request, template)
-
-@login_required(login_url='/auth/login/')
-def communities(request):
-	template='communities.html'
-	return render(request, template)
-
-@login_required(login_url='/auth/login/')
-def feedback(request):
-    	template='feedback.html'
-    	return render(request, template)
-
-@login_required(login_url='/auth/login/')
-def newCommit(request):
-    	template='newCommit.html'
-    	return render(request, template)
+def add_feedback(request):
+    return render(request, 'feedback.html')

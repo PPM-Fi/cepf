@@ -26,6 +26,7 @@ class Appointment(models.Model):
     date = models.DateTimeField()
     officers = models.ManyToManyField(Officer)
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
+    is_completed = models.BooleanField(default=False)
 
     class Meta:
         db_table= 'Appointment'
