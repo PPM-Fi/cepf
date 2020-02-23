@@ -23,6 +23,7 @@
         <ul id="slide-out" class="sidenav">
                 <li><a href="#">Active Assignments</a></li>
                 <li><a href="{% url 'history' %}">Past Assignments</a></li>
+                <li><a href="{% url 'newCommit' %}">Add Assignemnt</a></li> <!-- Add New Assignment -->
         </ul>
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
@@ -57,6 +58,12 @@
 
                                                         <p class="details-header">Contact Details</p>
                                                         <p>{{ daily_assignment.contact|linebreaks }}</p>
+
+                                                        <div class="center-align">
+                                                          <a href="{% url 'feedback' %}"><button class="waves-effect waves-light light-blue btn-small" type="submit">Feedback Form</button></a>
+                                                        </<div>
+
+                                                        </div>
                                                 </div>
                                         </li>
                                         {% endfor %}
@@ -91,6 +98,7 @@
                         </div>
                 </div>
         </div>
+
 </main>
 
 <footer>

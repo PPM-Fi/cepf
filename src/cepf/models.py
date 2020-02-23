@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
+
 
 class Officer(AbstractUser):
 
@@ -22,22 +23,15 @@ class Community(models.Model):
         db_table = 'Community'
         verbose_name_plural = 'Community'
 
-class Feedback(models.Model):
-    attendance = models.IntegerField()
-    reception = models.IntegerField()
-    impact = models.IntegerField()
-    notes = models.TextField()
-
-    class Meta:
-        db_table = 'Feedback'
-        verbose_name_plural = 'Feedback'
-
 class Appointment(models.Model):
     date = models.DateTimeField()
-    feedback = models.OneToOneField(Feedback, null=True, blank=True, on_delete=models.SET_NULL)
     officers = models.ManyToManyField(Officer)
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
 
     class Meta:
         db_table= 'Appointment'
         verbose_name_plural = 'Appointment'
+
+class Post(models.Model):
+    post = models.CharField(max_length=250)
+    user = models.ForeignKey(Officer, on_delete=models.CASCADE)

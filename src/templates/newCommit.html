@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/registration/login.css" %}">
+<link rel="stylesheet" href="{% static "css/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <!-- Top Navbar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper col s12 light-blue">
+          <a href="{% url 'calendar' %}" class="sidenav-trigger show-on-large"><i class="material-icons">close</i></a>
+            <ul class="right">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
+            </ul>
+        </div>
+      </nav>
+    </div>
+</header>
+
+<main>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <ul class="collapsible collection with-header">
+          <li class="collection-header light-blue lighten-3">
+            <h4 class="center-align">Add Assignment</h4>
+          </li>
+
+          <form method="post">
+
+            <!-- community dropdown -->
+            <div class="container center">
+              <div class="row">
+                <h1 class="center-align"> </h1>
+                  <select class="browser-default">
+                    <option value="" disabled selected>Choose community</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+
+                  <!-- date/time picker -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col s12 m6 offset-m3">
+                        <input id="opd" type="text" class="datepicker">
+                        <label for="opd">select Date</label>
+
+                        <input id="opt" type="text" class="timepicker">
+                        <label for="opt">select Time</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Invite Colleagues -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">Invite Colleagues</label>
+                    </div>
+                  </div>
+
+                  <!-- Location -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">location_on</i>
+                      <input id="icon_prefix" type="text" class="validate">
+                      <label for="icon_prefix">location</label>
+                    </div>
+                  </div>
+
+                  <!-- Add more notes -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                       <i class="material-icons prefix">mode_edit</i>
+                      <textarea id="textarea1" class="materialize-textarea"></textarea>
+                      <label for="textarea1">More Details</label>
+
+                      <!-- Submit Button -->
+                      <div class="container center-align">
+                        <button class=" center-align waves-effect waves-light light-blue btn-large" type="submit">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </form>
+
+         </ul>
+       </div>
+ 	   </div>
+   </div>
+
+</main>
+
+<footer>
+  <div class="footer-fixed">
+    <nav class="z-depth-0 light-blue"></nav>
+  </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> <!-- For date&time -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> <!-- For date&time -->
+<script src="{% static "js/nav.js" %}"></script>
+<script src="{% static "js/dropdown.js" %}"></script>
+{% endblock %}
