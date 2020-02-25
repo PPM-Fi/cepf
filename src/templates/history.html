@@ -6,31 +6,6 @@
 {% endblock %}
 
 {% block content %}
-<header>
-        <!-- Top Navbar -->
-        <div class="navbar-fixed">
-        <nav>
-                <div class="nav-wrapper light-blue">
-                        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-                        <ul class="right">
-                                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
-                        </ul>
-                </div>
-        </nav>
-        </div>
-        <!-- Slide-out Navbar -->
-        <ul id="slide-out" class="sidenav">
-                <li><a href="{% url 'calendar' %}">Active Assignments</a></li>
-                <li><a href="#">Past Assignments</a></li>
-        </ul>
-        <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-                <li><a href="javascript:window.location.reload(true)">Refresh</a></li>
-                <li class="divider"></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
-</header>
-
 <main>
         <div class="container">
                 <div class="row">

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static "css/feedback.css" %}">
 {% endblock %}
 
-{% block content %}
+{% block header %}
 <header>
     <!-- Top Navbar -->
     <div class="navbar-fixed">
@@ -18,8 +18,14 @@
         </div>
       </nav>
     </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+            <li><a href="javascript:window.location.reload(true)">Refresh</a></li>
+    </ul>
 </header>
+{% endblock %}
 
+{% block content %}
 <main>
 <div class="row">
         <div class="col s12 m6 offset-m3 l4 offset-l4">
