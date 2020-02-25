@@ -20,6 +20,13 @@
         </div>
         <!-- Slide-out Navbar -->
         <ul id="slide-out" class="sidenav">
+                <li>
+                        <div class="user-view light-blue lighten-3">
+                                <img class="circle" src="{% static "images/police-cap.png" %}">
+                                <span class="black-text name">{{ user.get_full_name }}</span>
+                                <span class="black-text email">{{ user.email }}</span>
+                        </div>
+                </li>
                 <li><a href="#">Active Assignments</a></li>
                 <li><a href="{% url 'history' %}">Past Assignments</a></li>
         </ul>
