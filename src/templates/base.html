@@ -46,7 +46,7 @@
                         {% if request.user.is_staff %}
                         <li><a class="subheader">Staff Options</a></li>
                         <li><a class="waves-effect" href="{% url 'assignments' %}"><i class="material-icons">event</i>Assignments</a></li>
-                        <li><a class="waves-effect" href="#"><i class="material-icons">people</i>Communities</a></li>
+                        <li><a class="waves-effect" href="{% url 'communities' %}"><i class="material-icons">people</i>Communities</a></li>
                         <li><a class="waves-effect" href="#"><i class="material-icons">face</i>Officers</a></li>
                         <li><a class="waves-effect" href="#"><i class="material-icons">insert_chart</i>Analytics</a></li>
                         <li><div class="divider"></div></li>

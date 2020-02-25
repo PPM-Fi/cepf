@@ -112,3 +112,10 @@ def assignments(request):
     items = Appointment.objects.all().order_by('date')
 
     return render(request, 'assignments.html', {'items': items})
+
+@login_required(login_url='/auth/login/')
+@staff_member_required
+def communities(request):
+    items = Community.objects.all().order_by('type')
+
+    return render(request, 'communities.html', {'items': items})

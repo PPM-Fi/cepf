@@ -2,16 +2,44 @@
 {% load static %}
 
 {% block head %}
+<link rel="stylesheet" href="{% static 'css/assignments.css' %}">
 {% endblock %}
 
 {% block content %}
 <main>
-        <div class="container form-container">
-                <div class="row">
-                        <h1>Communities View</h1>
-                        <a href="{% url 'feedback' %}">feedback</a>
-                </div>
+        <div class="container">
+                <ul class="collapsible collection with-header">
+                        <li class="collection-header light-blue lighten-3">
+                                <h4 class="center-align">Communities</h4>
+                        </li>
+                        <li>
+                                <table class="striped centered">
+                                        <thead>
+                                                <tr>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Location</th>
+                                                <th>Communication Channel</th>
+                                                <th>Engagement Period</th>
+                                                </tr>
+                                        </thead>
+
+                                        <tbody>
+                                                {% for item in items %}
+                                                <tr>
+                                                        <td>{{ item.name }}</td>
+                                                        <td>{{ item.type }}</td>
+                                                        <td>{{ item.location }}</td>
+                                                        <td>{{ item.communication_channel }}</td>
+                                                        <td>{{ item.engagement_period_multipler }} {{ item.engagement_period }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                </table>
+                        </li>
+                </ul>
         </div>
+
 </main>
 {% endblock %}
 
