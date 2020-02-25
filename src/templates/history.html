@@ -3,13 +3,14 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static "css/calendar.css" %}">
+<link rel="stylesheet" href="{% static "css/history.css" %}">
 {% endblock %}
 
 {% block content %}
 <main>
         <div class="container">
                 <div class="row">
-                        <div class="col s12 m12 l12">
+                        <div class="col s12 m12 l7">
                                 <ul class="collapsible collection with-header">
                                         <li class="collection-header light-blue lighten-3">
                                                 <h4>Past Assignments</h4>
@@ -44,6 +45,11 @@
                                         {% endfor %}
                                 </ul>
                         </div>
+                        <div class="col s12 m12 l5">
+                                <div id="pie-container">
+                                        <canvas id="pie-chart"></canvas>
+                                </div>
+                        </div>
                 </div>
         </div>
 </main>
@@ -51,4 +57,28 @@
 
 {% block scripts %}
 <script src="{% static "js/nav.js" %}"></script>
+<script>
+        var config = {
+                type: 'pie',
+                data: {
+                        datasets: [{
+                                data: {{ data|safe }},
+                                backgroundColor: [
+                                        '#76D7C4', '#F5B7B1'
+                                ],
+                                label: 'Population'
+                        }],
+                        labels: {{ labels|safe }}
+                },
+                options: {
+                        responsive: true,
+                        aspectRatio: 1
+                }
+        };
+
+        window.onload = function() {
+                var ctx = document.getElementById('pie-chart').getContext('2d');
+                window.myPie = new Chart(ctx, config);
+        };
+</script>
 {% endblock %}

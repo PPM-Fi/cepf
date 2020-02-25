@@ -55,6 +55,8 @@ def history(request):
             officers__id=request.user.id
         ).order_by('-date')
 
+    data = [0, 0]
+
     for appointment in appointments:
         if appointment.date.date() < d.today():
             context['assignments'].append(
@@ -68,6 +70,16 @@ def history(request):
                     'id': appointment.id
                 }
             )
+
+            if appointment.is_completed:
+                data[0] += 1
+            else:
+                data[1] += 1
+
+    labels = ['Finished', 'Unfinished']
+
+    context['labels'] = labels
+    context['data'] = data
 
     return render(request, 'history.html', context)
 
