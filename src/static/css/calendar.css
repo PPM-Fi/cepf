@@ -25,3 +25,9 @@
 .right-aligned-flex {
         margin-left: auto;
 }
+
+@media only screen and (max-width: 600px) {
+  .mobile-margin {
+          margin-top: 20px;
+  }
+}

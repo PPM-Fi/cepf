@@ -105,3 +105,10 @@ def add_feedback(request, id, back):
         form = FeedbackForm()
 
     return render(request, 'feedback.html', {'form': form})
+
+@login_required(login_url='/auth/login/')
+@staff_member_required
+def assignments(request):
+    items = Appointment.objects.all().order_by('date')
+
+    return render(request, 'assignments.html', {'items': items})

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/assignments.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+        <div class="container">
+                <ul class="collapsible collection with-header">
+                        <li class="collection-header light-blue lighten-3">
+                                <h4 class="center-align">All Assignments</h4>
+                        </li>
+                        <li>
+                                <table class="striped centered">
+                                        <thead>
+                                                <tr>
+                                                <th>Date</th>
+                                                <th>Officers</th>
+                                                <th>Community</th>
+                                                <th>Completed</th>
+                                                </tr>
+                                        </thead>
+
+                                        <tbody>
+                                                {% for item in items %}
+                                                <tr>
+                                                        <td>{{ item.date }}</td>
+                                                        <td>
+                                                                {% for officer in item.officers.all %}
+                                                                {{ officer.first_name }} {{ officer.last_name }} <br>
+                                                                {% endfor %}
+                                                        </td>
+                                                        <td>{{ item.community.name }}</td>
+                                                        <td>{{ item.is_completed }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                </table>
+                        </li>
+                </ul>
+        </div>
+
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/nav.js" %}"></script>
+{% endblock %}
