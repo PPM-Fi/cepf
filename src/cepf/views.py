@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from cepf.models import Officer, Community, Appointment
+from cepf.models import Officer, Community, Appointment, Feedback
 from cepf.forms import FeedbackForm
 
 from datetime import date as d
@@ -27,7 +27,8 @@ def calendar(request):
                     'time': appointment.date.strftime("%H:%M"),
                     'location': appointment.community.location,
                     'contact': appointment.community.communication_channel,
-                    'is_completed': appointment.is_completed
+                    'is_completed': appointment.is_completed,
+                    'id': appointment.id
                 }
             )
         elif appointment.date.date() > d.today():
@@ -62,19 +63,32 @@ def history(request):
                     'time': appointment.date.strftime("%H:%M"),
                     'date': appointment.date.strftime("%A, %d.%m.%Y"),
                     'location': appointment.community.location,
-                    'contact': appointment.community.communication_channel
+                    'contact': appointment.community.communication_channel,
+                    'is_completed': appointment.is_completed,
+                    'id': appointment.id
                 }
             )
 
     return render(request, 'history.html', context)
 
 @login_required(login_url='/auth/login/')
-def add_feedback(request):
+def add_feedback(request, id, back):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            #TODO: Process form submission
-            return HttpResponseRedirect('/')
+            feedback = Feedback(attendance=form.cleaned_data['attendance'],
+                                reception=form.cleaned_data['reception'],
+                                impact=form.cleaned_data['impact'],
+                                notes=form.cleaned_data['notes'])
+            feedback.save()
+            appointment = Appointment.objects.get(id=id)
+            appointment.feedback = feedback
+            appointment.is_completed = True
+            appointment.save()
+            if back == 'calendar':
+                return HttpResponseRedirect('/')
+            elif back == 'history':
+                return HttpResponseRedirect('/history')
     else:
         form = FeedbackForm()
 

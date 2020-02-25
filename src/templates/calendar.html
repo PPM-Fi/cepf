@@ -48,15 +48,15 @@
                                                         <div>{{ daily_assignment.name }}
                                                                 <div class="teal-text text-lighten-1">{{ daily_assignment.time }}</div>
                                                         </div>
-                                                                <div class="right-aligned-flex grey-text text-darken-2">
-                                                                        {% if not daily_assignment.is_completed %}
-                                                                        <a href="{% url 'add_feedback' %}" class="grey-text text-darken-2">
-                                                                                <i class="material-icons checkbox">check_box_outline_blank</i>
-                                                                        </a>
-                                                                        {% else %}
-                                                                        <i class="material-icons checkbox">check_box</i>
-                                                                        {% endif %}
-                                                                </div>
+                                                        <div class="right-aligned-flex grey-text text-darken-2">
+                                                                {% if not daily_assignment.is_completed %}
+                                                                <a href="{% url 'add_feedback' id=daily_assignment.id back='calendar' %}" class="grey-text text-darken-2">
+                                                                        <i class="material-icons checkbox">check_box_outline_blank</i>
+                                                                </a>
+                                                                {% else %}
+                                                                <i class="material-icons checkbox">check_box</i>
+                                                                {% endif %}
+                                                        </div>
                                                 </div>
                                                 <div class="collapsible-body">
                                                         <p class="details-header">Location</p>
