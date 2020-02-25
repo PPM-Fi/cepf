@@ -7,4 +7,5 @@ urlpatterns = [
     path('add_feedback/<int:id>/<str:back>/', views.add_feedback, name='add_feedback'),
     path('assignments', views.assignments, name='assignments'),
     path('communities', views.communities, name='communities'),
+    path('officers', views.officers, name='officers'),
 ]

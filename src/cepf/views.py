@@ -119,3 +119,10 @@ def communities(request):
     items = Community.objects.all().order_by('type')
 
     return render(request, 'communities.html', {'items': items})
+
+@login_required(login_url='/auth/login/')
+@staff_member_required
+def officers(request):
+    items = Officer.objects.all().order_by('username')
+
+    return render(request, 'officers.html', {'items': items})
