@@ -1,4 +1,5 @@
 from django import forms
+from cepf.models import Community, Officer
 
 class FeedbackForm(forms.Form):
     attendance = forms.IntegerField(widget=forms.NumberInput(attrs={'type':'range', 'step': '1', 'min': '1', 'max': '5'}),
@@ -12,3 +13,40 @@ class FeedbackForm(forms.Form):
 
     notes = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),
                             label='Feedback Notes')
+
+def communities():
+    items = Community.objects.all().order_by('type')
+
+    communities = tuple()
+
+    for item in items:
+        community = tuple((tuple((str(item.id), item.name))))
+        communities += (community,)
+
+    print(communities)
+
+    return communities
+
+def officers():
+    items = Officer.objects.all().order_by('username')
+
+    officers = tuple()
+
+    for item in items:
+        officer = tuple((str(item.id), item.get_full_name()))
+        officers += (officer,)
+
+    print(officers)
+
+    return officers
+
+class AssignForm(forms.Form):
+    communities = forms.ChoiceField(widget=forms.widgets.Select(), choices=communities(), label='')
+
+    date = forms.DateField(widget=forms.widgets.DateInput(attrs={'class': 'datepicker'}), label='')
+
+    time = forms.TimeField(widget=forms.widgets.TextInput(attrs={'class': 'timepicker'}), label='')
+
+    officers = forms.MultipleChoiceField(widget=forms.widgets.SelectMultiple(), choices=officers(), label='')
+
+    notes = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}), label='Extra Notes')

@@ -38,6 +38,7 @@ class Appointment(models.Model):
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     is_completed = models.BooleanField(default=False)
     feedback = models.ForeignKey(Feedback, on_delete=models.SET_NULL, null=True)
+    notes = models.TextField(default='')
 
     class Meta:
         db_table= 'Appointment'

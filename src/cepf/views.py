@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from cepf.models import Officer, Community, Appointment, Feedback
-from cepf.forms import FeedbackForm
+from cepf.forms import FeedbackForm, AssignForm
 
 from datetime import date as d
 
@@ -126,3 +126,29 @@ def officers(request):
     items = Officer.objects.all().order_by('username')
 
     return render(request, 'officers.html', {'items': items})
+
+@login_required(login_url='/auth/login/')
+@staff_member_required
+def assign(request):
+    if request.method == 'POST':
+        print("posted\n")
+        form = AssignForm(request.POST)
+        print(form.data)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+            datetime = datetime.datetime.combine(date, time)
+            officers = []
+            for officer in form.cleaned_data['officers']:
+                officers.append(Officer.objects.get(id=int(officer)))
+            community = Community.objects.get(id=int(form.cleaned_data['community']))
+            assignment = Appointment(date=datetime,
+                                     community=community,
+                                     notes=form.cleaned_data['notes'])
+            assignment.officers.set(officers)
+            assignment.save()
+            return HttpResponseRedirect('/assignments')
+    else:
+        form = AssignForm()
+
+    return render(request, 'assign.html', {'form': form})

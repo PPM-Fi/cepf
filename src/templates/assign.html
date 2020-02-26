@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/assign.css' %}">
+{% endblock %}
+
+{% block header %}
+<header>
+    <!-- Top Navbar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper col s12 light-blue">
+          <a href="{% url 'assignments' %}" class="sidenav-trigger show-on-large"><i class="material-icons">close</i></a>
+            <ul class="right">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
+            </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+            <li><a href="javascript:window.location.reload(true)">Refresh</a></li>
+    </ul>
+</header>
+{% endblock %}
+
+{% block content %}
+<main>
+<div class="row">
+        <div class="col s12 m6 offset-m3 l4 offset-l4">
+                <ul class="collapsible collection with-header">
+                        <li class="collection-header light-blue lighten-3">
+                        <h4 class="center-align">New Assignment</h4>
+                        </li>
+                        <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="container">
+                                        <div class="row">
+                                                <h6>Community</h6>
+                                                <div class="input-field">
+                                                        {{ form.communities }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <h6>Date and Time</h6>
+                                                <div class="col s6">
+                                                        <div class="input-field">
+                                                                <i class="material-icons prefix">date_range</i>
+                                                                {{ form.date }}
+                                                        </div>
+                                                </div>
+                                                <div class="col s6">
+                                                        <div class="input-field">
+                                                                <i class="material-icons prefix">access_time</i>
+                                                                {{ form.time }}
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <h6>Officers</h6>
+                                                <div class="input-field">
+                                                        <i class="material-icons prefix">account_circle</i>
+                                                        {{ form.officers }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="input-field">
+                                                        <i class="material-icons prefix">mode_edit</i>
+                                                        {{ form.notes }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="center-align">
+                                                        <button class="waves-effect waves-light light-blue btn-large" type="submit">Submit</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </form>
+                </ul>
+        </div>
+</div>
+</main>
+
+<!-- <main>
+<div class="container">
+<div class="row">
+<div class="col s12 m6 offset-m3">
+<ul class="collapsible collection with-header">
+<li class="collection-header light-blue lighten-3">
+<h4 class="center-align">Add Assignment</h4>
+</li>
+
+<form method="post">
+
+<div class="container center">
+<div class="row">
+<h1 class="center-align"> </h1>
+<select class="browser-default">
+<option value="" disabled selected>Choose community</option>
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3</option>
+</select>
+
+<div class="container">
+<div class="row">
+<div class="col s12 m6 offset-m3">
+<input id="opd" type="text" class="datepicker">
+<label for="opd">select Date</label>
+
+<input id="opt" type="text" class="timepicker">
+<label for="opt">select Time</label>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="input-field col s12">
+<i class="material-icons prefix">account_circle</i>
+<input id="icon_prefix" type="text" class="validate">
+<label for="icon_prefix">Invite Colleagues</label>
+</div>
+</div>
+
+<div class="row">
+<div class="input-field col s12">
+<i class="material-icons prefix">location_on</i>
+<input id="icon_prefix" type="text" class="validate">
+<label for="icon_prefix">location</label>
+</div>
+</div>
+
+<div class="row">
+<div class="input-field col s12">
+<i class="material-icons prefix">mode_edit</i>
+<textarea id="textarea1" class="materialize-textarea"></textarea>
+<label for="textarea1">More Details</label>
+
+<div class="container center-align">
+<button class=" center-align waves-effect waves-light light-blue btn-large" type="submit">Submit</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</ul>
+</div>
+</div>
+</div>
+</main> -->
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/nav.js" %}"></script>
+<script src="{% static "js/forms.js" %}"></script>
+{% endblock %}

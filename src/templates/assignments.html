@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block head %}
+<link rel="stylesheet" href="{% static 'css/assignments.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -9,9 +10,11 @@
         <div class="container">
                 <ul class="collapsible collection with-header">
                         <li class="collection-header light-blue lighten-3">
-                                <h4 class="center-align">All Assignments</h4>
+                                <h4 class="center-align">
+                                        All Assignments
+                                </h4>
                         </li>
-                        <li>
+                        <li class="scrollable">
                                 <table class="striped centered">
                                         <thead>
                                                 <tr>
@@ -40,8 +43,13 @@
                         </li>
                 </ul>
         </div>
-
+        <div class="fixed-action-btn">
+                <a href="{% url 'assign' %}" class="btn-floating blue btn-large" id="add-button">
+                <i class="material-icons">add</i>
+                </a>
+        </div>
 </main>
+
 {% endblock %}
 
 {% block scripts %}
