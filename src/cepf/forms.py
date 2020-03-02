@@ -50,3 +50,17 @@ class AssignForm(forms.Form):
     officers = forms.MultipleChoiceField(widget=forms.widgets.SelectMultiple(), choices=officers(), label='')
 
     notes = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}), label='Extra Notes')
+
+class CommunitiesForm(forms.Form):
+    name = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),label='Feedback Notes')
+
+    type = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),label='Feedback Notes')
+
+    location = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),label='Feedback Notes')
+
+    communication_channel = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),label='Feedback Notes')
+
+    engagement_period = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),label='Feedback Notes')
+
+    engagement_period_multipler = forms.IntegerField(widget=forms.NumberInput(attrs={'type':'range', 'step': '1', 'min': '1', 'max': '5'}),
+                                min_value=1, max_value=5, label='')
