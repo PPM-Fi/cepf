@@ -6,6 +6,7 @@ from cepf.models import Officer, Community, Appointment, Feedback
 from cepf.forms import FeedbackForm, AssignForm, CommunitiesForm
 
 from datetime import date as d
+from datetime import datetime as dt
 
 @login_required(login_url='/auth/login/')
 def calendar(request):
@@ -137,14 +138,16 @@ def assign(request):
         if form.is_valid():
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
-            datetime = datetime.datetime.combine(date, time)
+            date_time = dt.combine(date, time)
+            print(date_time)
             officers = []
             for officer in form.cleaned_data['officers']:
                 officers.append(Officer.objects.get(id=int(officer)))
             community = Community.objects.get(id=int(form.cleaned_data['community']))
-            assignment = Appointment(date=datetime,
+            assignment = Appointment(date=date_time,
                                      community=community,
                                      notes=form.cleaned_data['notes'])
+            assignment.save()
             assignment.officers.set(officers)
             assignment.save()
             return HttpResponseRedirect('/assignments')
@@ -156,6 +159,6 @@ def assign(request):
 
 @login_required(login_url='/auth/login/')
 @staff_member_required
-def newCommunities(request):
+def add_community(request):
     form = CommunitiesForm()
-    return render(request, 'newCommunities.html', {'form': form})
+    return render(request, 'add_community.html', {'form': form})

@@ -6,5 +6,5 @@ document.addEventListener('DOMContentLoaded', function() {
     var dateInstances = M.Datepicker.init(dateElems, {format:'yyyy-mm-dd'});
 
     var timeElems = document.querySelectorAll('.timepicker');
-    var timeInstances = M.Timepicker.init(timeElems);
+    var timeInstances = M.Timepicker.init(timeElems, {twelveHour:true});
   });

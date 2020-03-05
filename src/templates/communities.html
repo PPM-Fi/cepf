@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block head %}
+<link rel="stylesheet" href="{% static "css/communities.css" %}">
 {% endblock %}
 
 {% block content %}
@@ -39,7 +40,7 @@
                 </ul>
         </div>
         <div class="fixed-action-btn">
-                <a href="{% url 'newCommunities' %}" class="btn-floating blue btn-large" id="add-button">
+                <a href="{% url 'add_community' %}" class="btn-floating blue btn-large" id="add-button">
                 <i class="material-icons">add</i>
                 </a>
         </div>

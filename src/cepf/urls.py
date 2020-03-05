@@ -9,5 +9,5 @@ urlpatterns = [
     path('communities', views.communities, name='communities'),
     path('officers', views.officers, name='officers'),
     path('assign', views.assign, name='assign'),
-    path('newCommunities', views.newCommunities, name='newCommunities'),
+    path('add_community', views.add_community, name='add_community'),
 ]

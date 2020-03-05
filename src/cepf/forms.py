@@ -41,11 +41,11 @@ def officers():
     return officers
 
 class AssignForm(forms.Form):
-    communities = forms.ChoiceField(widget=forms.widgets.Select(), choices=communities(), label='')
+    community = forms.ChoiceField(widget=forms.widgets.Select(), choices=communities(), label='')
 
     date = forms.DateField(widget=forms.widgets.DateInput(attrs={'class': 'datepicker'}), label='')
 
-    time = forms.TimeField(widget=forms.widgets.TextInput(attrs={'class': 'timepicker'}), label='')
+    time = forms.TimeField(input_formats=['%I:%M %p'], widget=forms.widgets.TextInput(attrs={'class': 'timepicker'}), label='')
 
     officers = forms.MultipleChoiceField(widget=forms.widgets.SelectMultiple(), choices=officers(), label='')
 
