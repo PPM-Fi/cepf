@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/assign.css' %}">
+{% endblock %}
+
+{% block header %}
+<header>
+    <!-- Top Navbar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper col s12 light-blue">
+          <a href="{% url 'communities' %}" class="sidenav-trigger show-on-large"><i class="material-icons">close</i></a>
+            <ul class="right">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
+            </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+            <li><a href="javascript:window.location.reload(true)">Refresh</a></li>
+    </ul>
+</header>
+{% endblock %}
+
+{% block content %}
+<main>
+<div class="row">
+        <div class="col s12 m6 offset-m3 l4 offset-l4">
+                <ul class="collapsible collection with-header">
+                        <li class="collection-header light-blue lighten-3">
+                        <h4 class="center-align">Add Community</h4>
+                        </li>
+                        <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="container">
+                                        <div class="row">
+                                                <h6>Community</h6>
+                                                <div class="input-field">
+                                                        <i class="material-icons prefix">location_city</i>
+                                                        {{ form.name }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <h6>Community Type</h6>
+                                                <div class="input-field">
+                                                        <i class="material-icons prefix">group</i>
+                                                        {{ form.type }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <h6>Location</h6>
+                                                <div class="input-field">
+                                                        <i class="material-icons prefix">location_on</i>
+                                                        <label for="icon_telephone">Address</label>
+                                                        {{ form.location }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <h6>Contact Number</h6>
+                                                <div class="input-field">
+                                                        <i class="material-icons prefix">contact_phone</i>
+                                                        <label for="icon_telephone">Telephone</label>
+                                                        {{ form.communication_channel }}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <h6>Engagement Period</h6>
+                                                <div class="col s6">
+                                                        <div class="input-field">
+                                                          <i class="material-icons prefix">av_timer</i>
+                                                          {{ form.engagement_period_multipler }}
+                                                        </div>
+                                                </div>
+                                                <div class="col s6">
+                                                        <div class="input-field">
+                                                            <i class="material-icons prefix">date_range</i>
+                                                            {{ form.engagement_period }}
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="center-align">
+                                                        <button class="waves-effect waves-light light-blue btn-large" type="submit">Submit</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </form>
+                </ul>
+        </div>
+</div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/nav.js" %}"></script>
+<script src="{% static "js/forms.js" %}"></script>
+{% endblock %}

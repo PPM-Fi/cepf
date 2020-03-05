@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from cepf.models import Officer, Community, Appointment, Feedback
-from cepf.forms import FeedbackForm, AssignForm
+from cepf.forms import FeedbackForm, AssignForm, CommunitiesForm
 
 from datetime import date as d
 
@@ -152,3 +152,10 @@ def assign(request):
         form = AssignForm()
 
     return render(request, 'assign.html', {'form': form})
+
+
+@login_required(login_url='/auth/login/')
+@staff_member_required
+def newCommunities(request):
+    form = CommunitiesForm()
+    return render(request, 'newCommunities.html', {'form': form})
