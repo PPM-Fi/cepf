@@ -19,15 +19,21 @@
                                                 <th>Name</th>
                                                 <th>Badge Number</th>
                                                 <th>Email</th>
+                                                <th>Is Staff</th>
                                                 </tr>
                                         </thead>
 
                                         <tbody>
                                                 {% for item in items %}
-                                                <tr>
+                                                {% if item.is_staff %}
+                                                <tr style="background-color: #e1bee7;">
+                                                {% else %}
+                                                <tr style="background-color: #eeeeee;">
+                                                {% endif %}
                                                         <td>{{ item.get_full_name }}</td>
                                                         <td>{{ item.username }}</td>
                                                         <td>{{ item.email }}</td>
+                                                        <td>{{ item.is_staff }}</td>
                                                 </tr>
                                                 {% endfor %}
                                         </tbody>

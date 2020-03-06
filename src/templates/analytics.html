@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/analytics.css" %}">
+{% endblock %}
+
+{% block content %}
+<main>
+        <div class="container">
+                <div class="row">
+                        <div class="col s12 m12 l6">
+                                <h4 class="center">Overall Progress</h4>
+                                <div id="pie-container">
+                                        <canvas id="pie-chart"></canvas>
+                                </div>
+                        </div>
+                        <div class="col s12 m12 l6">
+                                <h4 class="center">District Impact</h4>
+                                <div id="pie-container">
+                                        <canvas id="pie-chart2"></canvas>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div id="bar-container">
+                                <canvas id="bar-chart"></canvas>
+                        </div>
+                </div>
+        </div>
+
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/nav.js" %}"></script>
+<script>
+        var pie_config = {
+                type: 'pie',
+                data: {
+                        datasets: [{
+                                data: {{ pie_data|safe }},
+                                backgroundColor: [
+                                        '#76D7C4', '#F5B7B1'
+                                ],
+                                label: 'Population'
+                        }],
+                        labels: {{ pie_labels|safe }}
+                },
+                options: {
+                        responsive: true,
+                        aspectRatio: 1
+                }
+        };
+
+        var pie_config2 = {
+                type: 'pie',
+                data: {
+                        datasets: [{
+                                data: {{ pie_data2|safe }},
+                                backgroundColor: [
+                                        '#81c784', '#aed581', '#fff176', '#ffb74d', '#ff8a65'
+                                ],
+                                label: 'Population'
+                        }],
+                        labels: {{ pie_labels2|safe }}
+                },
+                options: {
+                        responsive: true,
+                        aspectRatio: 1
+                }
+        };
+
+        window.onload = function() {
+                var pie_ctx = document.getElementById('pie-chart').getContext('2d');
+                window.myPie = new Chart(pie_ctx, pie_config);
+
+                var pie_ctx2 = document.getElementById('pie-chart2').getContext('2d');
+                window.myPie2 = new Chart(pie_ctx2, pie_config2);
+
+                var bar_ctx = document.getElementById('bar-chart').getContext('2d');
+                var bar_chart = new Chart(bar_ctx, {
+                type: 'bar',
+
+                data: {
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                        datasets: [{
+                                label: 'Finished',
+                                backgroundColor: '#76D7C4',
+                                borderColor: '#76D7C4',
+                                data: [16, 22, 14, 0, 0, 0, 0]
+                        },
+                        {
+                                label: 'Unfinished',
+                                backgroundColor: '#F5B7B1',
+                                borderColor: '#F5B7B1',
+                                data: [3, 4, 2, 0, 0, 0, 0]
+                        }]
+                },
+
+                options: {
+                        aspectRatio: 4,
+                }
+                });
+        };
+</script>
+{% endblock %}

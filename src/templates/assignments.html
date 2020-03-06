@@ -27,7 +27,11 @@
 
                                         <tbody>
                                                 {% for item in items %}
-                                                <tr>
+                                                {% if item.is_completed %}
+                                                <tr style="background-color: #c8e6c9;">
+                                                {% else %}
+                                                <tr style="background-color: #ffcdd2;">
+                                                {% endif %}
                                                         <td>{{ item.date }}</td>
                                                         <td>
                                                                 {% for officer in item.officers.all %}

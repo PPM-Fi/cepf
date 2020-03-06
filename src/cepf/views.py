@@ -241,3 +241,13 @@ def add_officer(request):
         form = OfficerForm()
 
     return render(request, 'add_officer.html', {'form': form})
+
+@login_required(login_url='/auth/login/')
+@staff_member_required
+def analytics(request):
+    return render(request, 'analytics.html', {
+        'pie_data': [30, 5, 24],
+        'pie_labels': ['Finished', 'Unfinished', 'Upcoming'],
+        'pie_data2': [13, 10, 4, 1, 2],
+        'pie_labels2': ['5/5', '4/5', '3/5', '2/5', '1/5'],
+    })
