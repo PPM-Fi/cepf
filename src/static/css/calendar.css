@@ -31,3 +31,10 @@
           margin-top: 20px;
   }
 }
+
+#pie-container {
+        width: 70% !important;
+        height: 70% !important;
+        margin: auto;
+        padding-top: 20px;
+}

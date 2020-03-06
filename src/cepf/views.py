@@ -48,6 +48,9 @@ def calendar(request):
             officers__id=request.user.id
         ).order_by('-date')
 
+    labels = ['Finished', 'Unfinished']
+    data = [0, 0]
+
     for past_appointment in past_appointments:
         if past_appointment.date.date() < d.today():
             context['past_assignments'].append(
@@ -61,6 +64,14 @@ def calendar(request):
                     'id': past_appointment.id
                 }
             )
+
+        if past_appointment.is_completed:
+            data[0] += 1
+        else:
+            data[1] += 1
+
+    context['labels'] = labels
+    context['data'] = data
 
     return render(request, 'calendar.html', context)
 
