@@ -63,8 +63,14 @@
                                         <div class="row">
                                                 <h6>Password</h6>
                                                 <div class="input-field">
-                                                  {{ form.password }}
+                                                        {{ form.password }}
                                                 </div>
+                                        </div>
+                                        <div class="row">
+                                                <label>
+                                                          {{ form.is_staff }}
+                                                          <span class='black-text' style="font-size: 1.15rem">Staff Permissions</span>
+                                                </label>
                                         </div>
                                         <div class="row">
                                                 <div class="center-align">

@@ -92,3 +92,5 @@ class OfficerForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(), label='')
 
     password = forms.CharField(widget=forms.PasswordInput(), label='')
+
+    is_staff = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'filled-in'}), required=False, label='')

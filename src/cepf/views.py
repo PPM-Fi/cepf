@@ -186,7 +186,27 @@ def add_community(request):
 @staff_member_required
 def add_officer(request):
     if request.method == 'POST':
-        return HttpResponseRedirect('/officers')
+        form = OfficerForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            username = form.cleaned_data['badge_number']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            if form.cleaned_data['is_staff']:
+                officer = Officer.objects.create_superuser(username=username,
+                                                           first_name=first_name,
+                                                           last_name=last_name,
+                                                           email=email,
+                                                           password=password)
+            else:
+                officer = Officer.objects.create_user(username=username,
+                                                      first_name=first_name,
+                                                      last_name=last_name,
+                                                      email=email,
+                                                      password=password)
+            officer.save()
+            return HttpResponseRedirect('/officers')
     else:
         form = OfficerForm()
 
