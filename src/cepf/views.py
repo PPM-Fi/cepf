@@ -65,10 +65,11 @@ def calendar(request):
                 }
             )
 
-        if past_appointment.is_completed:
-            data[0] += 1
-        else:
-            data[1] += 1
+        if past_appointment.date.date() <= d.today():
+            if past_appointment.is_completed:
+                data[0] += 1
+            else:
+                data[1] += 1
 
     context['labels'] = labels
     context['data'] = data

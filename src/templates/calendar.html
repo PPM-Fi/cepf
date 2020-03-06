@@ -10,7 +10,73 @@
         <div class="container">
                 <div class="row">
                         <div class="col s12 m12 l7">
-
+                                <ul class="collapsible collection with-header">
+                                        <li class="collection-header light-blue lighten-3">
+                                                <h4 class="center">Weekly Calendar</h4>
+                                                <div class="center">
+                                                        <span>02-08 March 2020</span>
+                                                </div>
+                                        </li>
+                                        <li>
+                                                <table class="centered calendar">
+                                                        <thead>
+                                                                <tr>
+                                                                        <th>MON</th>
+                                                                        <th>TUE</th>
+                                                                        <th>WED</th>
+                                                                        <th>THU</th>
+                                                                        <th>FRI</th>
+                                                                        <th>SAT</th>
+                                                                        <th>SUN</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr>
+                                                                        <td>
+                                                                                <div class="td-wrapper light-blue lighten-4">
+                                                                                        <div class="blue-text text-darken-3"><b>9:00</b></div>
+                                                                                        <div class="td-name">Gedling Youth & Seniour Council</div>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>
+                                                                                <div class="td-wrapper light-blue lighten-4">
+                                                                                        <div class="blue-text text-darken-3"><b>10:00</b></div>
+                                                                                        <div class="td-name">Elderly Group</div>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>
+                                                                                <div class="td-wrapper light-blue lighten-4">
+                                                                                        <div class="blue-text text-darken-3"><b>16:00</b></div>
+                                                                                        <div class="td-name">Church of the Sacred Heart</div>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </li>
+                                </ul>
                         </div>
                         <div class="col s12 m12 l5">
                                 <div id="pie-container">
@@ -57,7 +123,7 @@
                         <div class="col s12 m12 l4 mobile-margin">
                                 <ul class="collapsible collection with-header">
                                         <li class="collection-header light-blue lighten-3">
-                                                <h4>Today's Assignments</h4>
+                                                <h4>Daily Assignments</h4>
                                                 <p>{{ today_date }}</p>
                                         </li>
 
@@ -94,7 +160,7 @@
                         <div class="col s12 m12 l4 mobile-margin">
                                 <ul class="collapsible collection with-header">
                                         <li class="collection-header light-blue lighten-3">
-                                                <h4>Upcoming Assignments</h4>
+                                                <h4>Future Assignments</h4>
                                         </li>
 
                                         {% for future_assignment in future_assignments %}
