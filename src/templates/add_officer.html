@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/add_community.css' %}">
+<link rel="stylesheet" href="{% static 'css/add_officer.css' %}">
 {% endblock %}
 
 {% block header %}
@@ -11,7 +11,7 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper col s12 light-blue">
-          <a href="{% url 'communities' %}" class="sidenav-trigger show-on-large"><i class="material-icons">close</i></a>
+          <a href="{% url 'officers' %}" class="sidenav-trigger show-on-large"><i class="material-icons">close</i></a>
             <ul class="right">
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
             </ul>
@@ -31,50 +31,39 @@
         <div class="col s12 m6 offset-m3 l4 offset-l4">
                 <ul class="collapsible collection with-header">
                         <li class="collection-header light-blue lighten-3">
-                        <h4 class="center-align">Add Community</h4>
+                        <h4 class="center-align">Add Officer</h4>
                         </li>
                         <form action="" method="post">
                                 {% csrf_token %}
                                 <div class="container">
                                         <div class="row">
-                                                <h6>Community Name</h6>
+                                                <h6>First Name</h6>
                                                 <div class="input-field">
-                                                        <i class="material-icons prefix">location_city</i>
-                                                        {{ form.name }}
+                                                        {{ form.first_name }}
                                                 </div>
                                         </div>
                                         <div class="row">
-                                                <h6>Community Type</h6>
+                                                <h6>Last Name</h6>
                                                 <div class="input-field">
-                                                        <i class="material-icons prefix">group</i>
-                                                        {{ form.type }}
+                                                        {{ form.last_name }}
                                                 </div>
                                         </div>
                                         <div class="row">
-                                                <h6>Address</h6>
+                                                <h6>Badge Number</h6>
                                                 <div class="input-field">
-                                                        <i class="material-icons prefix">location_on</i>
-                                                        {{ form.location }}
+                                                        {{ form.badge_number }}
                                                 </div>
                                         </div>
                                         <div class="row">
-                                                <h6>Communication Channel</h6>
+                                                <h6>Email</h6>
                                                 <div class="input-field">
-                                                        <i class="material-icons prefix">contact_phone</i>
-                                                        {{ form.communication_channel }}
+                                                        {{ form.email }}
                                                 </div>
                                         </div>
                                         <div class="row">
-                                                <h6>Engagement Period</h6>
-                                                <div class="col s2">
-                                                        <div class="input-field">
-                                                          {{ form.engagement_period_multipler }}
-                                                        </div>
-                                                </div>
-                                                <div class="col s3">
-                                                        <div class="input-field">
-                                                            {{ form.engagement_period }}
-                                                        </div>
+                                                <h6>Password</h6>
+                                                <div class="input-field">
+                                                  {{ form.password }}
                                                 </div>
                                         </div>
                                         <div class="row">

@@ -10,4 +10,5 @@ urlpatterns = [
     path('officers', views.officers, name='officers'),
     path('assign', views.assign, name='assign'),
     path('add_community', views.add_community, name='add_community'),
+    path('add_officer', views.add_officer, name='add_officer'),
 ]

@@ -1,0 +1,21 @@
+form {
+        margin-top: 20px;
+}
+
+button {
+        margin-left: 10px;
+        margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  form .row {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding-left: 10px;
+          padding-right: 10px;
+  }
+
+  .collection {
+          width: 100% !important;
+  }
+}

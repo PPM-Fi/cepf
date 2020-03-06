@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block head %}
+<link rel="stylesheet" href="{% static "css/officers.css" %}">
 {% endblock %}
 
 {% block content %}
@@ -34,7 +35,11 @@
                         </li>
                 </ul>
         </div>
-
+        <div class="fixed-action-btn">
+                <a href="{% url 'add_officer' %}" class="btn-floating blue btn-large" id="add-button">
+                <i class="material-icons">add</i>
+                </a>
+        </div>
 </main>
 {% endblock %}
 
