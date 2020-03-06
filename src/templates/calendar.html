@@ -9,7 +9,42 @@
 <main>
         <div class="container">
                 <div class="row">
-                        <div class="col s12 m12 l6">
+                        <div class="col s12 m12 l4">
+                                <ul class="collapsible collection with-header">
+                                        <li class="collection-header light-blue lighten-3">
+                                                <h4>Past Assignments</h4>
+                                        </li>
+
+                                        {% for past_assignment in past_assignments %}
+                                        <li>
+                                                <div class="collapsible-header grey lighten-4">
+                                                        <i class="material-icons">expand_more</i>
+                                                        <div>{{ past_assignment.name }}
+                                                                <div class="teal-text text-lighten-1">{{ past_assignment.time }}</div>
+                                                                <div class="teal-text text-lighten-1">{{ past_assignment.date }}</div>
+                                                        </div>
+                                                        <div class="right-aligned-flex grey-text text-darken-2">
+                                                                {% if not past_assignment.is_completed %}
+                                                                <a href="{% url 'add_feedback' id=past_assignment.id back='calendar' %}" class="grey-text text-darken-2">
+                                                                        <i class="material-icons checkbox">check_box_outline_blank</i>
+                                                                </a>
+                                                                {% else %}
+                                                                <i class="material-icons checkbox">check_box</i>
+                                                                {% endif %}
+                                                        </div>
+                                                </div>
+                                                <div class="collapsible-body">
+                                                        <p class="details-header">Location</p>
+                                                        <p>{{ past_assignment.location|linebreaks }}</p>
+
+                                                        <p class="details-header">Contact Details</p>
+                                                        <p>{{ past_assignment.contact|linebreaks }}</p>
+                                                </div>
+                                        </li>
+                                        {% endfor %}
+                                </ul>
+                        </div>
+                        <div class="col s12 m12 l4 mobile-margin">
                                 <ul class="collapsible collection with-header">
                                         <li class="collection-header light-blue lighten-3">
                                                 <h4>Today's Assignments</h4>
@@ -46,7 +81,7 @@
                                 </ul>
                         </div>
 
-                        <div class="col s12 m12 l6 mobile-margin">
+                        <div class="col s12 m12 l4 mobile-margin">
                                 <ul class="collapsible collection with-header">
                                         <li class="collection-header light-blue lighten-3">
                                                 <h4>Upcoming Assignments</h4>

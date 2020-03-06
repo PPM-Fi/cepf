@@ -12,6 +12,7 @@ from datetime import datetime as dt
 def calendar(request):
     context = {
         'today_date': d.today().strftime("%A, %d.%m.%Y"),
+        'past_assignments': [],
         'daily_assignments': [],
         'future_assignments': []
     }
@@ -43,46 +44,63 @@ def calendar(request):
                 }
             )
 
-
-    return render(request, 'calendar.html', context)
-
-@login_required(login_url='/auth/login/')
-def history(request):
-    context = {
-        'assignments': [],
-    }
-
-    appointments = Appointment.objects.filter(
+    past_appointments = Appointment.objects.filter(
             officers__id=request.user.id
         ).order_by('-date')
 
-    data = [0, 0]
-
-    for appointment in appointments:
-        if appointment.date.date() < d.today():
-            context['assignments'].append(
+    for past_appointment in past_appointments:
+        if past_appointment.date.date() < d.today():
+            context['past_assignments'].append(
                 {
-                    'name': appointment.community.name,
-                    'time': appointment.date.strftime("%H:%M"),
-                    'date': appointment.date.strftime("%A, %d.%m.%Y"),
-                    'location': appointment.community.location,
-                    'contact': appointment.community.communication_channel,
-                    'is_completed': appointment.is_completed,
-                    'id': appointment.id
+                    'name': past_appointment.community.name,
+                    'time': past_appointment.date.strftime("%H:%M"),
+                    'date': past_appointment.date.strftime("%A, %d.%m.%Y"),
+                    'location': past_appointment.community.location,
+                    'contact': past_appointment.community.communication_channel,
+                    'is_completed': past_appointment.is_completed,
+                    'id': past_appointment.id
                 }
             )
 
-            if appointment.is_completed:
-                data[0] += 1
-            else:
-                data[1] += 1
+    return render(request, 'calendar.html', context)
 
-    labels = ['Finished', 'Unfinished']
-
-    context['labels'] = labels
-    context['data'] = data
-
-    return render(request, 'history.html', context)
+# @login_required(login_url='/auth/login/')
+# def history(request):
+#     context = {
+#         'assignments': [],
+#     }
+#
+#     appointments = Appointment.objects.filter(
+#             officers__id=request.user.id
+#         ).order_by('-date')
+#
+#     data = [0, 0]
+#
+#     for appointment in appointments:
+#         if appointment.date.date() < d.today():
+#             context['assignments'].append(
+#                 {
+#                     'name': appointment.community.name,
+#                     'time': appointment.date.strftime("%H:%M"),
+#                     'date': appointment.date.strftime("%A, %d.%m.%Y"),
+#                     'location': appointment.community.location,
+#                     'contact': appointment.community.communication_channel,
+#                     'is_completed': appointment.is_completed,
+#                     'id': appointment.id
+#                 }
+#             )
+#
+#             if appointment.is_completed:
+#                 data[0] += 1
+#             else:
+#                 data[1] += 1
+#
+#     labels = ['Finished', 'Unfinished']
+#
+#     context['labels'] = labels
+#     context['data'] = data
+#
+#     return render(request, 'history.html', context)
 
 @login_required(login_url='/auth/login/')
 def add_feedback(request, id, back):
