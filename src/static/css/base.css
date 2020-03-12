@@ -8,13 +8,25 @@ footer div {
 }
 
 footer {
-        position: fixed;
+    position: fixed;
 	bottom: 0;
 	width: 100%;
 }
 
 .scrollable {
         overflow: auto !important;
+}
+
+.header {
+    font-size: 1.5rem;
+    margin: 0;
+    display: inline;
+    vertical-align: middle;
+    padding-bottom: 5px;
+}
+
+.short-header {
+    display: none !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -33,5 +45,13 @@ footer {
 
   .col {
           padding: 0 !important;
+  }
+
+  .long-header {
+      display: none !important;
+  }
+
+  .short-header {
+      display: inline !important;
   }
 }
