@@ -44,12 +44,13 @@ h4 {
 
 td {
         padding: 3px;
-        height: 70px;
+        height: 80px;
         vertical-align: top;
 }
 
 .td-wrapper {
         height: 100%;
+        overflow: hidden;
 }
 
 @media only screen and (max-width: 600px) {
